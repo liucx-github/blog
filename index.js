@@ -36,11 +36,10 @@ http.createServer(async (req, res) => {
       const data = await resolvePost(req);
       const projectDir = path.resolve(`./${data.repository.name}`)
      deleteFolderRecursive(projectDir)
-     console.log(`git clone https://github.com/liucx-github/${data.repository.name}.git ${projectDir}`)
       // 拉取仓库最新代码
-      execSync(`git clone https://github.com/liucx-github/${data.repository.name}.git ${projectDir}`,{
-        stdio:'inherit',
-    })
+    //   execSync(`git clone https://github.com/liucx-github/${data.repository.name}.git ${projectDir}`,{
+    //     stdio:'inherit',
+    // })
      // 复制 Dockerfile 到项目目录
      fs.copyFileSync(path.resolve(`./Dockerfile`), path.resolve(projectDir,'./Dockerfile'))
 

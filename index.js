@@ -36,7 +36,7 @@ http.createServer(async (req, res) => {
       const data = await resolvePost(req);
       const projectDir = path.resolve(`./${data.repository.name}`)
      deleteFolderRecursive(projectDir)
-     console.log(`git clone https://github.com/liucx-github/${data.repository.name}.git`)
+     console.log(`git clone https://github.com/liucx-github/${data.repository.name}.git ${projectDir}`)
       // 拉取仓库最新代码
       execSync(`git clone https://github.com/liucx-github/${data.repository.name}.git ${projectDir}`,{
         stdio:'inherit',

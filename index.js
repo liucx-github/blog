@@ -56,7 +56,6 @@ http.createServer(async (req, res) => {
       execSync(`docker ps -a -f "name=^${data.repository.name}-container" --format="{{.Names}}" | xargs -r docker stop | xargs -r docker rm`, {
        stdio: 'inherit',
    })
-
       // 创建 docker 容器
       execSync(`docker run -d -p 8888:80 --name ${data.repository.name}-container  ${data.repository.name}-image:latest`, {
        stdio:'inherit',
